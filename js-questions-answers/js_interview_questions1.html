@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../assets/simple-sidebar.css">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <title>Javascript Interview Questions: Part 1</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top main-header">
+    <a class="navbar-brand m-auto" href="../index.html">JavaScript Tutorial</a>
+  </nav>
+
+  <button type="button" class="btn btn-danger back-to-home">
+    <a href="../index.html">Home</a>
+  </button>
+
+  <!-- /Page Content -->
+  <div id="app-content-wrapper">
+    <div class="container">
+      <h1 class="type--h1">Javascript Interview Questions: Part 1</h1>
+      <p>sample</p>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <script>
+    (function($) {
+      $("#sidebar-wrapper").load("../nav.html");
+    })(jQuery);
+  </script>
+
+  <script>
+    // 1. Find the sum of the parameters of the matrix.
+    const matrix = [
+      [1, 1, 1, 1],
+      [1, 1, 1, 1],
+      [1, 1, 1, 1],
+      [1, 1, 1, 1]
+    ]; 
+
+    let rows = matrix.length;
+    let columns = matrix[0].length;
+    console.log('rows: ' + rows);
+    console.log('columns: ' + columns);
+
+    let sum = 0;
+
+    // iterating through first row
+    for (let i=0; i<columns; i++) {
+      sum += matrix[0][i];
+    }
+    
+    // iterating through last row
+    for (let i=0; i<columns; i++) {
+      sum += matrix[rows-1][i];
+    }
+
+    // iterating through first column
+    for (let i=0; i<rows; i++) {
+      sum += matrix[i][0];
+    }
+
+    // iterating through last column
+    for (let i=0; i<rows; i++) {
+      sum += matrix[i][columns-1];
+    }
+
+    // subtracting the values of edges
+    sum = sum - matrix[0][0] - matrix[0][columns-1] - matrix[rows-1][0] - matrix[rows-1][columns-1];
+    console.log('sum of the matrix: ' + sum);
+    
+    // 2. Write a function which will return these outputs
+    // f(1)(2)(3); // 9
+    // f(2)(2)(1); // 4
+    // f(2, 2, 1); // 4
+    // f(); // 0
+
+    function result(a, b, c) {
+      if (a && b && c) {
+        return (a + b) * c;
+      } else if (a && b) {
+        return function(val) {
+          return (a + b) * val;
+        }
+      } else if (a) {
+        return function(val1) {
+          return function(val2) {
+            return (a + val1) * val2;
+          }
+        }
+      } else {
+        return 0;
+      }
+    }
+
+    console.log(result(1)(2)(3)); // 9
+    console.log(result(2)(2)(1)); // 4
+    console.log(result(2, 2, 1)); // 4
+    console.log(result()); // 0
+
+    // 3. let say an object is there
+    // Convert into array which stores only the values of the object.
+    x = {
+      a: 1, // name: value pairs
+      b: 2
+    }; 
+
+    const nameArr = [];
+    const valArr = [];
+
+    for(let i in x) {
+      nameArr.push(i); // prints name
+      valArr.push(x[i]); // prints value
+    }
+
+    console.log(nameArr); // ["a", "b"]
+    console.log(valArr); // [1, 2]
+
+    // 4. Reverse a string.
+    const reverseString = (str) => str.split('').reverse().join('');
+
+    console.log('Reverse string: ' + reverseString('amrit'));
+
+
+    // 5. Modify the code so that newObj.getA().getB(); should not return undefined
+    const newObj = {
+      a: 1,
+      b: 2,
+      getA() {
+        console.log(this.a);
+        return this;  // add this line
+      },
+      getB() {
+        console.log(this.b);
+      }
+    }
+
+    newObj.getA().getB();
+
+    // 6. Add all the elements of an array.
+    let addArr = [1, 2, 5, 6, 8];
+
+    let resultArr = addArr.reduce((acc, item) => acc + item);
+
+    console.log('Result array after reduce: ' + resultArr);
+  </script>
+</body>
+</html>

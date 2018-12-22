@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bookmarker List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/simple-sidebar.css">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="fetchBookmarks()">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-header fixed-top">
+    <a class="navbar-brand m-auto" href="../../index.html">JavaScript Tutorial</a>
+  </nav>
+
+  <button type="button" class="btn btn-danger back-to-home">
+    <a href="../../index.html">Home</a>
+  </button>
+
+  <div id="app-content-wrapper">
+  <div class="container">
+    <h1 class="type--h1">Bookmarker List</h1>
+    <div class="block">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Bookmark your Favorite sites</h5>
+              <form id="bookmarkForm">
+                <div class="form-group">
+                  <label>Site Name</label>
+                  <input type="text" id="siteName" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label>Site Url</label>
+                  <input type="text" id="siteUrl" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div id="results"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script>
+    (function($) {
+      $("#sidebar-wrapper").load("../../nav.html");
+    })(jQuery);
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>

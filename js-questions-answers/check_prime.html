@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Check prime number</title>
+</head>
+<body>
+    <!-- <label for="">Enter number</label>
+    <input type="text" id="number">
+    <input type="submit" onclick="findPrime(n)">
+    <div id="result"></div> -->
+
+    <script>
+        function findPrime(n) {
+            if (n === 1) {
+                return false;
+            } else if (n === 2) {
+                return true;
+            } else {
+                for(var x=2; x<n; x++) {
+                    if(n % x === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        console.log(findPrime(37));
+    </script>
+</body>
+</html>

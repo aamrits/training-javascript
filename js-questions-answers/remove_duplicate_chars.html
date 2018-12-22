@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="intro">Remove duplication from a word</h1>
+
+<div class="workspace clearfix">
+	<div class="col-md-12">
+		<h3>Enter a string</h3><br>
+		<input type="text" id="enterString">
+		<input type="submit" id="submit" value="Remove duplication" onclick="duplicateChars()">
+	</div> 
+
+	<div class="col-md-12">
+		<h3>Result:</h3>	
+		<p id="result"></p>
+	</div>
+</div>
+
+<!-- <div class="code-snippet clearfix">
+	<div class="col-md-12">
+	  <h4>HTML Code</h4>
+	</div>
+</div> -->
+
+<script type="text/javascript">
+	function duplicateChars() {
+		var str = document.getElementById("enterString").value;
+		var res = new Array();
+		for (var i = 0; i < str.length; i++) {
+			if(res.indexOf(str[i]) < 0) {    //-1 means the value is not present.
+				res = res + str[i];          //so that value will be added to array.
+			}
+		}
+		//console.log(res);
+		document.getElementById("result").innerHTML = res;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Factorial</title>
+</head>
+<body>
+    <script>
+        var factorial = function compute(number) {
+            if (number <= 1) {
+                return 1;
+            }
+            return number * compute(number - 1);
+        }
+        document.write(factorial(5));
+    </script>
+</body>
+</html>

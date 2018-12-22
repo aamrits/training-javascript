@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Decimal to Hexadecimal</title>
+</head>
+<body>
+  <h1 id="intro">Decimal to Hexadecimal</h1>
+
+  <div class="workspace clearfix">
+    <div class="col-md-12">
+      <h3>Enter the decimal number</h3><br>
+      <input type="text" id="enterNumber">
+      <input type="submit" id="submit" value="convert" onclick="dectohex()">	
+    </div> 
+
+    <div class="col-md-12">
+      <h3>Result:</h3>	
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <div class="code-snippet clearfix">
+    <div class="col-md-12">
+      <!-- <h4>Script</h4>
+      
+    </div> -->
+  </div>
+
+  <script type="text/javascript">
+    function dectohex() {		
+      
+      var num = document.getElementById("enterNumber").value;
+      var arr = new Array();
+      while (num > 0) {	
+        remainder = num % 16;
+        if (remainder < 10) {
+          arr.push(remainder);
+        }					
+        else if (remainder < 17) {
+          var res = String.fromCharCode(remainder + 55);
+          arr.push(res);
+        }
+        num = parseInt(num / 16);
+      }
+      
+      var finalResult = arr.reverse().join('');
+      document.getElementById('result').innerHTML = finalResult;
+      
+    }
+  </script>
+</body>
+</html>
